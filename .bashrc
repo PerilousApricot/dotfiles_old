@@ -2,12 +2,12 @@
 
 # Aliases
 alias cgit="GIT_DIR=$HOME/.config-git GIT_WORK_TREE=$HOME/. git"
-
+alias cmsset="export SCRAM_ARCH=slc5_amd64_gcc462 ; export USER_CXXFLAGS='-D__USE_XOPEN2K8' ; . /opt/cms/cmsset_default.sh"
 # Functions
 melo_set_prompt()
 {
     # These import as locals to keep from cluttering things
-    source CommonHomeTools/bash/color.sh
+    source ~/CommonHomeTools/bash/color.sh
     if [ "x" == "x$MELO_TERM_NAME" ]; then
         local TERM_SEQ=""
     else
@@ -23,7 +23,7 @@ melo_set_prompt()
             ;;
     esac
 
-    export PS1="[\[$HOST_COLOR\]\h\[$Color_Off\]]$TERM_SEQ \$ "
+    export PS1="[\[$HOST_COLOR\]\h\[$Color_Off\]]$TERM_SEQ \w \$ "
 }
 
 melo_set_prompt
