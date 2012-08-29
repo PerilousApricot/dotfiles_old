@@ -1,8 +1,13 @@
-** My Configuration Files **
+## My Configuration Files ##
 
 Probably not useful to you if you're not trying to be me
 
-alias cgit="GIT_DIR=$HOME/.config-git GIT_WORK_TREE=$HOME/. git"
-cgit clone git@github.com:PerilousApricot/dotfiles.git
+    git clone git@github.com:PerilousApricot/dotfiles.git
+    mv dotfiles/.git ~/.config-git
+    rm -rf dotfiles
+    alias cgit="GIT_DIR=$HOME/.config-git GIT_WORK_TREE=$HOME/. git"
+    cgit checkout .gitignore
+    cgit status
 
+Will update the files and show you what you're missing
 
