@@ -2,7 +2,16 @@
 
 # Aliases
 alias cgit="GIT_DIR=$HOME/.config-git GIT_WORK_TREE=$HOME/. git"
-alias cmsset="export SCRAM_ARCH=slc5_amd64_gcc462 ; export USER_CXXFLAGS='-D__USE_XOPEN2K8' ; . /opt/cms/cmsset_default.sh"
+case `hostname -f` in
+    se*.accre.vanderbilt.edu)
+        alias cmsset="export SCRAM_ARCH=slc5_amd64_gcc462 ; export USER_CXXFLAGS='-D__USE_XOPEN2K8' ; . /opt/cms/cmsset_default.sh"
+        ;;
+    vmp*)
+        alias cmsset="export SCRAM_ARCH=slc5_amd64_gcc462 ; export CVSROOT=:pserver:anonymous@cmssw.cvs.cern.ch:/local/reps/CMSSW ; source /gpfs21/grid/grid-app/cmssoft/cms/cmsset_default.sh"
+        setpkgs -a git
+        ;;
+esac
+
 # Functions
 melo_set_prompt()
 {
@@ -15,7 +24,7 @@ melo_set_prompt()
     fi
     local HOST_COLOR=$BGreen
     case `hostname -f` in
-        *.accre.vanderbilt.edu)
+        *.accre.vanderbilt.edu|vmp*)
             HOST_COLOR=$BRed
             ;;
         *)
