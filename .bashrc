@@ -12,6 +12,9 @@ case `hostname -f` in
         ;;
 esac
 
+# variables
+export PATH=~/CommonHomeTools/build/git/local/bin:$PATH
+
 # Functions
 melo_set_prompt()
 {
