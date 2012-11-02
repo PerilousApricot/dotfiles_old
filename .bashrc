@@ -7,13 +7,16 @@ case `hostname -f` in
         alias cmsset="export SCRAM_ARCH=slc5_amd64_gcc462 ; export USER_CXXFLAGS='-D__USE_XOPEN2K8' ; . /opt/cms/cmsset_default.sh"
         ;;
     vmp*)
-        alias cmsset="export SCRAM_ARCH=slc5_amd64_gcc462 ; export CVSROOT=:pserver:anonymous@cmssw.cvs.cern.ch:/local/reps/CMSSW ; source /gpfs21/grid/grid-app/cmssoft/cms/cmsset_default.sh"
-        setpkgs -a git
+        alias cmsset="export SCRAM_ARCH=slc5_amd64_gcc462 ; export CVSROOT=\":gserver:cmssw.cvs.cern.ch:/local/reps/CMSSW\" ; source /gpfs21/grid/grid-app/cmssoft/cms/cmsset_default.sh"
+        export OSG_APP=/home/grid-app
+        export VO_CMS_SW_DIR=/home/grid-app/cmssoft/cms
         ;;
 esac
 
 # variables
-export PATH=~/CommonHomeTools/build/git/local/bin:$PATH
+export PATH=~/CommonHomeTools/build/git/local/bin:~/CommonHomeTools/vim/bin/:$PATH
+export MANPATH=~/CommonHomeTools/build/git/local/man:~/CommonHomeTools/vim/share/man/:$PATH
+export CVSROOT=meloam@cmssw.cvs.cern.ch:/local/reps/CMSSW
 
 # Functions
 melo_set_prompt()
