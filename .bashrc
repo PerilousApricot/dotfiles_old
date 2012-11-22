@@ -7,7 +7,7 @@ case `hostname -f` in
         alias cmsset="export SCRAM_ARCH=slc5_amd64_gcc462 ; export USER_CXXFLAGS='-D__USE_XOPEN2K8' ; . /opt/cms/cmsset_default.sh"
         ;;
     vmp*)
-        alias cmsset="export SCRAM_ARCH=slc5_amd64_gcc462 ; export CVSROOT=\":gserver:cmssw.cvs.cern.ch:/local/reps/CMSSW\" ; source /gpfs21/grid/grid-app/cmssoft/cms/cmsset_default.sh"
+        alias cmsset="export SCRAM_ARCH=slc5_amd64_gcc462 ; source /gpfs21/grid/grid-app/cmssoft/cms/cmsset_default.sh"
         export OSG_APP=/home/grid-app
         export VO_CMS_SW_DIR=/home/grid-app/cmssoft/cms
         ;;
