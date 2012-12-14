@@ -69,8 +69,10 @@ vnoremap <tab> %
 "     set wrap
 "     set textwidth=79
 "     set formatoptions=qrn1
-" but instead, I'll do 
-" set colorcolumn=80
+" but instead, I'll do
+if exists("&colorcolumn")
+:set colorcolumn=80
+endif
 " which is a recent vim thing. I need to update my script to build local
 " versions of important binaries
 
@@ -123,8 +125,10 @@ filetype plugin indent on
 
 " Python stuff
 " from http://sontek.net/blog/detail/turning-vim-into-a-modern-python-ide#basic-editing-and-debugging
-set foldmethod=indent
-set foldlevel=99
+if has("&foldmethod")
+    set foldmethod=indent
+    set foldlevel=99
+endif
 au FileType python set omnifunc=pythoncomplete#Complete
 let g:SuperTabDefaultCompletionType = "context"
 set completeopt=menuone,longest,preview
